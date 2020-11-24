@@ -4,11 +4,10 @@ import ReactDOM from "react-dom";
 
 import moment from "moment";
 import "moment/locale/zh-cn";
-
 import App from "./App";
 import "./index.less";
 import reportWebVitals from "./reportWebVitals";
-
+import { Router, Route } from 'react-router'
 moment.locale("zh-cn");
 ReactDOM.render(
   <App />,

@@ -2,11 +2,12 @@ import { Breadcrumb, Layout } from "antd";
 import "./App.less";
 import Headers from "./layout/headers/headers";
 import Sidebar from "./layout/sidebar/sidebar";
+import React from 'react'
 function App() {
   const { Content } = Layout
   return (
     <main>
-      <Layout>
+      <Layout className="m-layout">
         <Headers></Headers>
         <Layout>
           <Sidebar></Sidebar>
