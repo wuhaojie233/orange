@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-const Dashboard: FC = () => {
+const About: FC = () => {
     return (
         <div>
-            dashboard hello
+            Abuot
         </div>
     )
 }
 
-export default Dashboard
+export default About
