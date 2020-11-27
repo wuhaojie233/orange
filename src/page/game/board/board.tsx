@@ -1,15 +1,19 @@
 import React, { FC, useState } from 'react';
 import Square from '../square/square';
 import './board.less'
-const Board: FC = () => {
+const Board: FC<any> = (props) => {
+    // const [state, setstate] = useState({
+    //     squares: Array(9).fill(null), xIsNext: true, history: [{
+    //         squares: Array(9).fill(null)
+    //     }],
+    // })
+    // const status = `Next player: ${state.xIsNext ? 'x' : 'O'}`
     const renderSquare = (i: number) => {
-        return <Square value={state.squares[i]} />;
+        return <Square onClick={() => props.onClick(i)} value={props.squares[i]} />;
     }
-    const status = 'Next player: X';
-    const [state, setstate] = useState({ squares: Array(9).fill(null) })
     return (
         <div>
-            <div className="status">{status}</div>
+
             <div className="board-row">
                 {renderSquare(0)}
                 {renderSquare(1)}

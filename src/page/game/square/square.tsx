@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import './square.less'
 
 const Square: React.FC<any> = (props) => {
-    const [state, setstate] = useState('')
-    const handleClick = (value: number) => {
+    // const [state, setstate] = useState('')
 
-    }
     return (
-        <button onClick={() => { handleClick(props.value) }} className="square">
+        <button onClick={props.onClick} className="square">
             {props.value}
         </button>
     )
