@@ -1,4 +1,4 @@
-import { Component, FC } from 'react'
+import { FC } from 'react'
 
 import About from '../page/about/about'
 import Dashboard from '../page/dashboard/dashboard'
