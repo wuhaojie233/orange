@@ -1,8 +1,14 @@
-import { createStore } from 'redux'
-import Store from './reducer'
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
+import reducers from './reducer'
+// 通过applyMiddleware来结合多个Middleware,返回一个enhancer
+const enhancer = applyMiddleware(thunk)
 const composeEnhancers =
-  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || null
-const store = createStore(Store, composeEnhancers && composeEnhancers())
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) ||
+  enhancer
 
+const store = createStore(
+  reducers,
+  composeEnhancers && composeEnhancers(enhancer)
+)
 export default store

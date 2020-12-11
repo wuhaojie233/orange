@@ -1,37 +1,44 @@
-import React, { useState, FC } from 'react'
-import store from '../../store/store'
-import { Avatar, Button, List } from 'antd';
-const Dashboard: FC = (props) => {
-  const [state, setState] = useState(store.getState())
-  store.subscribe(() => {
-
-    console.warn(store.getState().list)
-  })
-  const dispatchRedux = () => {
-    store.dispatch({ type: 'UPDATE', list: ['redux-One', 'Reducer-Two', 'Action-tree', 'Store-flow'] })
-  }
+import React, { FC } from 'react'
+import { Button, List } from 'antd';
+import GroupState from '../../store/group-state';
+const Dashboard: FC<{ list: Array<string>, onIncreaseClick: any }> = (props) => {
+  // const { list, onIncreaseClick } = props
+  const increaseAction = { type: 'todoList', list: ['hello', 'redux-One', 'Reducer-Two', 'Action-tree', 'Store-flow'] }
+  const inDefaultAction = { type: 'todoList', list: ['66666666', 'Reducer-Two', 'Action-tree', '77777777'] }
+  console.warn(props)
   return (
     <div>
       <h1>Hello Redex</h1>
       <div>
-        <Button onClick={dispatchRedux} type="primary">修改Redux</Button>
+        {/* <Button onClick={() => onIncreaseClick(increaseAction)} type="primary">onIncreaseClick</Button> */}
+        {/* <Button onClick={() => onIncreaseClick(inDefaultAction)} type="primary">inDefaultAction</Button> */}
       </div>
-      <List
+      {/* <List
         itemLayout="horizontal"
-        dataSource={state.list}
+        dataSource={list}
         renderItem={item => (
           <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-              title={<a href="https://ant.design">{item}</a>}
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-            />
+            {item}
           </List.Item>
         )}
-      />,
+      />, */}
 
     </div>
   )
 }
+export default GroupState(Dashboard, {
+  reducer: 'auth',
+  states: ['userInfo']
+})
+// export default connect((state: any) => {
+//   return {
+//     list: state.list
+//   }
+// },
+//   (dispatch) => {
+//     return {
+//       onIncreaseClick: (data: any) => dispatch(data),
+//     }
+//   })(Dashboard)
 
-export default Dashboard
+
