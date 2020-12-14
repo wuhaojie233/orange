@@ -1,4 +1,3 @@
-const state = {
-  userInfo: {},
+export default {
+  user: null,
 }
-export default state

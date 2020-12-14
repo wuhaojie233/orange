@@ -11,8 +11,8 @@ const GroupState = (
       let _state = {}
       states &&
         states.forEach((item: any) => {
-          _state[item] = state
-          // _state[item] = state?.getIn([reducer, item])
+          // _state[item] = state
+          _state[item] = state[reducer]?.getIn([item])
         })
       return _state
     },
