@@ -1,6 +1,5 @@
 import { Breadcrumb, Layout } from "antd";
 import React, { FC } from 'react'
-import RouterView from "../../routes/routes";
 import Headers from '../headers/headers';
 import Sidebar from '../sidebar/sidebar';
 const { Content } = Layout
@@ -24,7 +23,6 @@ const Home: FC = () => {
                             minHeight: 280,
                         }}
                     >
-                        <RouterView />
                     </Content>
                 </Layout>
             </Layout>

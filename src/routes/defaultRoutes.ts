@@ -3,6 +3,7 @@ import { FC } from 'react'
 import About from '../page/about/about'
 import Dashboard from '../page/dashboard/dashboard'
 import Game from '../page/game/game'
+import Login from '../pages/auth/login'
 export interface RouteIF {
   path?: string
   component?: FC
@@ -24,6 +25,7 @@ const routes: Array<RouteIF> = [
         path: '/game',
         component: Game,
       },
+      { path: '/login', exact: true, component: Login },
       //   {
       //     component: "./404",
       //   },

@@ -1,10 +1,14 @@
-import "./App.less";
+import './App.less'
 import React, { FC } from 'react'
-import Home from "./layout/home/home";
-const App: FC = () => {
+import RouterView from './routes/routes'
+const App: FC = (props) => {
   return (
-    <Home></Home>
-  );
+    <main>
+      {props.children}
+      {/* <Home></Home> */}
+      <RouterView></RouterView>
+    </main>
+  )
 }
 
-export default App;
+export default App
