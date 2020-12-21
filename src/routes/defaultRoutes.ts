@@ -1,9 +1,9 @@
 import { FC } from 'react'
-
-import About from '../page/about/about'
-import Dashboard from '../page/dashboard/dashboard'
-import Game from '../page/game/game'
 import Login from '../pages/auth/login'
+import Home from '../layout/home/home'
+import dashboard from '../page/dashboard/dashboard'
+import Game from '../page/game/game'
+import About from '../page/about/about'
 export interface RouteIF {
   path?: string
   component?: FC
@@ -12,10 +12,11 @@ export interface RouteIF {
 }
 
 const routes: Array<RouteIF> = [
+  { path: '/login', exact: true, component: Login },
   {
-    path: '/',
+    path: '/home',
     exact: true,
-    component: Dashboard,
+    component: Home,
     routes: [
       {
         path: '/about',
@@ -25,12 +26,19 @@ const routes: Array<RouteIF> = [
         path: '/game',
         component: Game,
       },
-      { path: '/login', exact: true, component: Login },
-      //   {
-      //     component: "./404",
-      //   },
+      {
+        path: '/dashboard',
+        component: dashboard,
+      },
+      {
+        path: '/',
+        component: dashboard,
+        exact: true,
+      },
     ],
   },
+  // { path: '', component: Login },
+  // { path: '**', component: Login },
   //   {
   //     component: "./404",
   //   },

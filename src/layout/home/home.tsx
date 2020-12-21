@@ -2,8 +2,12 @@ import { Breadcrumb, Layout } from "antd";
 import React, { FC } from 'react'
 import Headers from '../headers/headers';
 import Sidebar from '../sidebar/sidebar';
+import RouterView from '../../routes/routes';
+import AuthRoutes from "../../routes/pages/auth";
+import { Route } from "react-router";
+import About from '../../page/about/about';
 const { Content } = Layout
-const Home: FC = () => {
+const Home: FC = (props: any) => {
     return (
         <Layout className="m-layout">
             <Headers></Headers>
@@ -23,6 +27,7 @@ const Home: FC = () => {
                             minHeight: 280,
                         }}
                     >
+                        <RouterView routes={AuthRoutes} />
                     </Content>
                 </Layout>
             </Layout>

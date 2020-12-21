@@ -1,14 +1,17 @@
 import { Button, Checkbox, Form, Input } from 'antd'
-import React, { Component } from 'react'
+import React from 'react'
 import { FC } from 'react'
 import { UserOutlined } from '@ant-design/icons'
-
-const Login: FC = () => {
+import './login.less'
+const Login: FC = (props: any) => {
   const onFinish = (values: string) => {
     console.log('Received values of form: ', values)
   }
+  const submit = () => {
+    props.history.replace('/home')
+  }
   return (
-    <section>
+    <section className="login-wrapper">
       <Form
         name="normal_login"
         className="login-form"
@@ -21,7 +24,7 @@ const Login: FC = () => {
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
+            placeholder="用户名"
           />
         </Form.Item>
         <Form.Item
@@ -31,16 +34,16 @@ const Login: FC = () => {
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             type="password"
-            placeholder="Password"
+            placeholder="密码"
           />
         </Form.Item>
         <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>记住密码</Checkbox>
           </Form.Item>
 
           <a className="login-form-forgot" href="">
-            Forgot password
+            忘记了密码
           </a>
         </Form.Item>
 
@@ -49,10 +52,11 @@ const Login: FC = () => {
             type="primary"
             htmlType="submit"
             className="login-form-button"
+            onClick={submit}
           >
-            Log in
+            登录
           </Button>
-          Or <a href="">register now!</a>
+          或者 <a href="">立即注册</a>
         </Form.Item>
       </Form>
     </section>

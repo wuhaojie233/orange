@@ -1,14 +1,15 @@
 import React, { FC } from 'react'
 import { Button } from 'antd';
-import GroupState from '../../store/group-state';
+
 import { fromJS } from 'immutable';
+
+import GroupState from '../../store/group-state';
 const Dashboard: FC<{ list: Array<string>, onIncreaseClick: any }> = (props) => {
   // const { list, onIncreaseClick } = props
-  const increaseAction = { type: 'todoList', list: ['hello', 'redux-One', 'Reducer-Two', 'Action-tree', 'Store-flow'] }
-  const inDefaultAction = { type: 'todoList', list: ['66666666', 'Reducer-Two', 'Action-tree', '77777777'] }
+  // const increaseAction = { type: 'todoList', list: ['hello', 'redux-One', 'Reducer-Two', 'Action-tree', 'Store-flow'] }
+  // const inDefaultAction = { type: 'todoList', list: ['66666666', 'Reducer-Two', 'Action-tree', '77777777'] }
   const list = { data: 'redux - dashboard', name: 'reducer' }
   let imdata = fromJS(list)
-  console.warn(props)
   const getIm = () => {
     console.warn(imdata.get('data'))
     let im1 = imdata.set('name', 'state - perv')

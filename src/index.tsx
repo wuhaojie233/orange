@@ -7,16 +7,17 @@ import 'moment/locale/zh-cn'
 import App from './App'
 import './index.less'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './store/store'
-import RouterView from './routes/routes'
 
 moment.locale('zh-cn')
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
+      {/* <Switch> */}
       <App />
+      {/* </Switch> */}
     </Provider>
   </BrowserRouter>,
   document.getElementById('root')

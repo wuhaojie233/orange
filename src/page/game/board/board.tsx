@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import Square from '../square/square';
 import './board.less'
 const Board: FC<any> = (props) => {

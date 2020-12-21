@@ -1,13 +1,18 @@
 import './App.less'
 import React, { FC } from 'react'
 import RouterView from './routes/routes'
-const App: FC = (props) => {
+import routes from './routes/defaultRoutes';
+import { renderRoutes } from 'react-router-config'
+const App: FC = (props: any) => {
   return (
+
     <main>
-      {props.children}
+      {/* {props.children} */}
       {/* <Home></Home> */}
-      <RouterView></RouterView>
+      {/* <RouterView routes={routes} ></RouterView> */}
+      {renderRoutes(routes)}
     </main>
+
   )
 }
 
