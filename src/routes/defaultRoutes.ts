@@ -17,25 +17,25 @@ const routes: Array<RouteIF> = [
     path: '/home',
     exact: true,
     component: Home,
-    routes: [
-      {
-        path: '/about',
-        component: About,
-      },
-      {
-        path: '/game',
-        component: Game,
-      },
-      {
-        path: '/dashboard',
-        component: dashboard,
-      },
-      {
-        path: '/',
-        component: dashboard,
-        exact: true,
-      },
-    ],
+    // routes: [
+    //   {
+    //     path: '/about',
+    //     component: About,
+    //   },
+    //   {
+    //     path: '/game',
+    //     component: Game,
+    //   },
+    //   {
+    //     path: '/dashboard',
+    //     component: dashboard,
+    //   },
+    //   {
+    //     path: '/',
+    //     component: dashboard,
+    //     exact: true,
+    //   },
+    // ],
   },
   // { path: '', component: Login },
   // { path: '**', component: Login },

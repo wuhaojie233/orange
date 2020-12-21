@@ -6,6 +6,7 @@ import RouterView from '../../routes/routes';
 import AuthRoutes from "../../routes/pages/auth";
 import { Route } from "react-router";
 import About from '../../page/about/about';
+import { renderRoutes } from 'react-router-config';
 const { Content } = Layout
 const Home: FC = (props: any) => {
     return (
@@ -27,7 +28,8 @@ const Home: FC = (props: any) => {
                             minHeight: 280,
                         }}
                     >
-                        <RouterView routes={AuthRoutes} />
+                        {/* <RouterView routes={AuthRoutes} /> */}
+                        {renderRoutes(AuthRoutes)}
                     </Content>
                 </Layout>
             </Layout>
