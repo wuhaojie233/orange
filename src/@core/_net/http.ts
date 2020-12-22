@@ -4,7 +4,7 @@ import QS from 'qs'
 //antd的message提示组件，大家可根据自己的ui组件更改。
 import { message } from 'antd'
 import { BASE_URL, TIMEOUT } from './config'
-import '../../../mock/auth/login'
+import '../../@mock/mock-default'
 
 //设置axios基础路径
 const http = axios.create({
@@ -34,7 +34,6 @@ http.interceptors.request.use(
     return config
   },
   (error) => {
-    console.log(error)
     return Promise.reject(error)
   }
 )

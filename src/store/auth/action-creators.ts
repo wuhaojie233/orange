@@ -1,9 +1,13 @@
-import { GET_USER_INFO } from './const'
-export const action = {
-  usefInfo() {
-    return {
-      type: GET_USER_INFO,
-      user: { name: '超级管理员', username: 'admin', pwd: 'admin' },
+import { LOG_AUTH } from './const'
+import http from '../../@core/_net/http'
+const AuthAction = {
+  login(params: any) {
+    return (dispatch: any) => {
+      http.post('login', params).then((res) => {
+        const user = res.data.user
+        dispatch({ type: LOG_AUTH, user })
+      })
     }
   },
 }
+export default AuthAction

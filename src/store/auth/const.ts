@@ -1,1 +1,1 @@
-export const GET_USER_INFO = 'GET_USER_INFO'
+export const LOG_AUTH = 'LOG_AUTH'

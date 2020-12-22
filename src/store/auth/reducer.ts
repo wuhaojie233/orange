@@ -1,11 +1,11 @@
 import { fromJS } from 'immutable'
-import { GET_USER_INFO } from './const'
+import { LOG_AUTH } from './const'
 import state from './state'
 
 const UserReducer = (prevState = fromJS(state), action: any) => {
   switch (action.type) {
-    case GET_USER_INFO:
-      return prevState.set('auth', action.user)
+    case LOG_AUTH:
+      return prevState.set('user', action.user)
     default:
       return prevState
   }

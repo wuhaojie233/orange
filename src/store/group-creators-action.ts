@@ -1,5 +1,5 @@
-import { action } from './auth/action-creators'
+import AuthAction from './auth/action-creators'
 
 export default {
-  auth: action,
+  auth: AuthAction,
 }

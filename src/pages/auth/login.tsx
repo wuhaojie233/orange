@@ -3,28 +3,19 @@ import React from 'react'
 import { FC } from 'react'
 import { UserOutlined } from '@ant-design/icons'
 import './login.less'
-import http from '../../@core/_net/http'
+import GroupState from '../../store/group-state'
 const Login: FC = (props: any) => {
   const onFinish = (values: string) => {
     console.log('Received values of form: ', values)
   }
-  const submit = () => {
-    http.post('/login', {
-      method: 'post',
-      data: {
-        username: 'admin',
-        password: 'admin'
-      }
 
-    }).then(
-      data => {
-        console.warn('data')
-        // props.history.replace('/home')
-      }
-    )
+  const submit = () => {
+    props.login({ username: 'admin', password: 'admin' })
   }
   return (
     <section className="login-wrapper">
+      name:{props.user?.name}
+      userId:{props.user?.userId}
       <Form
         name="normal_login"
         className="login-form"
@@ -76,4 +67,4 @@ const Login: FC = (props: any) => {
   )
 }
 
-export default Login
+export default GroupState(Login, { reducer: 'auth', states: ['user'] })

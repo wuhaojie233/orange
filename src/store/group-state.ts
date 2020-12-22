@@ -17,9 +17,6 @@ const GroupState = (
       return _state
     },
     (dispatch) => {
-      let z = GroupCreatorsAction[options.reducer]
-      // console.warn(z)
-      // console.warn(dispatch + z)
       return bindActionCreators(GroupCreatorsAction[options.reducer], dispatch)
     }
   )(ViewComponent)
