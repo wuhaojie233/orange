@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
+
 import Login from '../pages/auth/login'
 import Home from '../layout/home/home'
 import dashboard from '../page/dashboard/dashboard'
@@ -43,6 +44,8 @@ const routes = [
       },
     ],
   },
+  { path: '/', exact: true, render: () => <Redirect to={'/login'} /> },
+  { path: '**', render: () => <Redirect to={'/login'} /> },
 ]
 
 export default routes

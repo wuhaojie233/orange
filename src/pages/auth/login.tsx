@@ -1,26 +1,36 @@
 import { Button, Checkbox, Form, Input } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import { FC } from 'react'
 import { UserOutlined } from '@ant-design/icons'
 import './login.less'
 import GroupState from '../../store/group-state'
+import { withRouter } from 'react-router'
 const Login: FC = (props: any) => {
-  const onFinish = (values: string) => {
-    console.log('Received values of form: ', values)
+  const [userName, setUserName] = useState()
+  const [passWord, setPassWord] = useState()
+  // const onFinish = (values: string) => {
+  //   console.log('Received values of form: ', values)
+  // }
+  const userNameHandle = (data: any) => {
+    setUserName(data.target.value)
   }
-
+  const passWordHandle = (data: any) => {
+    setPassWord(data.target.value)
+  }
+  // 登录
   const submit = () => {
-    props.login({ username: 'admin', password: 'admin' })
+    props.login(
+      { username: userName, password: passWord },
+      props.history.replace('/home')
+    )
   }
   return (
     <section className="login-wrapper">
-      name:{props.user?.name}
-      userId:{props.user?.userId}
       <Form
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
-        onFinish={onFinish}
+        onFinish={submit}
       >
         <Form.Item
           name="username"
@@ -29,6 +39,8 @@ const Login: FC = (props: any) => {
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             placeholder="用户名"
+            value={userName}
+            onChange={userNameHandle}
           />
         </Form.Item>
         <Form.Item
@@ -38,6 +50,8 @@ const Login: FC = (props: any) => {
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             type="password"
+            value={passWord}
+            onChange={passWordHandle}
             placeholder="密码"
           />
         </Form.Item>
@@ -46,9 +60,7 @@ const Login: FC = (props: any) => {
             <Checkbox>记住密码</Checkbox>
           </Form.Item>
 
-          <a className="login-form-forgot" href="">
-            忘记了密码
-          </a>
+          <a className="login-form-forgot">忘记了密码</a>
         </Form.Item>
 
         <Form.Item>
@@ -56,7 +68,6 @@ const Login: FC = (props: any) => {
             type="primary"
             htmlType="submit"
             className="login-form-button"
-            onClick={submit}
           >
             登录
           </Button>
