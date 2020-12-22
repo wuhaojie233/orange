@@ -9,6 +9,7 @@ import About from '../../page/about/about';
 import { renderRoutes } from 'react-router-config';
 const { Content } = Layout
 const Home: FC = (props: any) => {
+    console.warn(props.route.routes)
     return (
         <Layout className="m-layout">
             <Headers></Headers>
@@ -29,7 +30,7 @@ const Home: FC = (props: any) => {
                         }}
                     >
                         {/* <RouterView routes={AuthRoutes} /> */}
-                        {renderRoutes(AuthRoutes)}
+                        {renderRoutes(props.route.routes)}
                     </Content>
                 </Layout>
             </Layout>

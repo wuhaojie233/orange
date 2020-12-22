@@ -3,12 +3,25 @@ import React from 'react'
 import { FC } from 'react'
 import { UserOutlined } from '@ant-design/icons'
 import './login.less'
+import http from '../../@core/_net/http'
 const Login: FC = (props: any) => {
   const onFinish = (values: string) => {
     console.log('Received values of form: ', values)
   }
   const submit = () => {
-    props.history.replace('/home')
+    http.post('/login', {
+      method: 'post',
+      data: {
+        username: 'admin',
+        password: 'admin'
+      }
+
+    }).then(
+      data => {
+        console.warn('data')
+        // props.history.replace('/home')
+      }
+    )
   }
   return (
     <section className="login-wrapper">

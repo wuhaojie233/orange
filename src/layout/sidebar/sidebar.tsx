@@ -18,9 +18,9 @@ const Sidebar: React.FC = () => {
         style={{ height: "100%", borderRight: 0 }}
       >
         <SubMenu key="sub1" icon={<UserOutlined />} title="home pad">
-          <Menu.Item key="1" ><Link to='/home/dashboard'>dashboard</Link></Menu.Item>
-          <Menu.Item key="2"><Link to='/home/about'>about</Link> </Menu.Item>
-          <Menu.Item key="3"><Link to='/home/game'>game</Link></Menu.Item>
+          <Menu.Item key="1" ><Link to='/dashboard'>dashboard</Link></Menu.Item>
+          <Menu.Item key="2"><Link to='/about'>about</Link> </Menu.Item>
+          <Menu.Item key="3"><Link to='/game'>game</Link></Menu.Item>
           <Menu.Item key="4">option4</Menu.Item>
         </SubMenu>
 

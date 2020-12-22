@@ -10,7 +10,6 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './store/store'
-
 moment.locale('zh-cn')
 ReactDOM.render(
   <BrowserRouter>

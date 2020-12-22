@@ -4,43 +4,45 @@ import Home from '../layout/home/home'
 import dashboard from '../page/dashboard/dashboard'
 import Game from '../page/game/game'
 import About from '../page/about/about'
+import { Redirect } from 'react-router-dom'
 export interface RouteIF {
   path?: string
   component?: FC
   exact?: boolean
   routes?: Array<RouteIF>
+  render?: any
 }
 
-const routes: Array<RouteIF> = [
+const routes = [
   { path: '/login', exact: true, component: Login },
   {
-    path: '/home',
-    exact: true,
+    path: '/',
     component: Home,
-    // routes: [
-    //   {
-    //     path: '/about',
-    //     component: About,
-    //   },
-    //   {
-    //     path: '/game',
-    //     component: Game,
-    //   },
-    //   {
-    //     path: '/dashboard',
-    //     component: dashboard,
-    //   },
-    //   {
-    //     path: '/',
-    //     component: dashboard,
-    //     exact: true,
-    //   },
-    // ],
+    routes: [
+      // {
+      //   path: '/',
+      //   exact: true,
+      //   render: () => <Redirect to={'/recommend'} />
+      // },
+      {
+        path: '/about',
+        component: About,
+      },
+      {
+        path: '/game',
+        component: Game,
+      },
+      {
+        path: '/dashboard',
+        component: dashboard,
+      },
+      {
+        path: '/',
+        component: dashboard,
+        exact: true,
+      },
+    ],
   },
-  // { path: '', component: Login },
-  // { path: '**', component: Login },
-  //   {
-  //     component: "./404",
-  //   },
 ]
+
 export default routes
