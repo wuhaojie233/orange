@@ -44,8 +44,8 @@ const routes = [
       },
     ],
   },
-  { path: '/', exact: true, render: () => <Redirect to={'/login'} /> },
-  { path: '**', render: () => <Redirect to={'/login'} /> },
+  // { path: '/', exact: true, render: () => <Redirect to={'/login'} /> },
+  // { path: '**', render: () => <Redirect to={'/login'} /> },
 ]
 
 export default routes

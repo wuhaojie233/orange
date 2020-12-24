@@ -25,7 +25,7 @@ const Home: FC = (props: any) => {
               minHeight: 280,
             }}
           >
-            {renderRoutes(props.route.routes)}
+            {/* {renderRoutes(props.route.routes)} */}
           </Content>
         </Layout>
       </Layout>
