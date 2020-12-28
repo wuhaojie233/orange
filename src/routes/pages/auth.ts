@@ -1,4 +1,4 @@
-import { RouteIF } from '../defaultRoutes'
+import { RouteIF } from '../publicRoutes'
 import About from '../../page/about/about'
 import Game from '../../page/game/game'
 import Dashboard from '../../page/dashboard/dashboard'

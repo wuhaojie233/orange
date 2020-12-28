@@ -14,9 +14,9 @@ moment.locale('zh-cn')
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      {/* <Switch> */}
-      <App />
-      {/* </Switch> */}
+      <Switch>
+        <App />
+      </Switch>
     </Provider>
   </BrowserRouter>,
   document.getElementById('root')

@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
 
-import { Route, Redirect, useRouteMatch, Router, Link } from 'react-router-dom'
+import { Route, Redirect, useRouteMatch, Router, Link, Switch } from 'react-router-dom';
 
-import { RouteIF } from './defaultRoutes'
+import { RouteIF } from './publicRoutes';
 
 const RouterView = (props: any) => {
   let match = useRouteMatch()
+  console.warn('match------->' + JSON.stringify(match))
   /**
    * @description 解析路由
    */
@@ -21,7 +22,6 @@ const RouterView = (props: any) => {
             key={path}
             path={`${match.url}` + path}
             component={component}
-            routes={routes}
           />
         )
       }
@@ -39,10 +39,28 @@ const RouterView = (props: any) => {
   }
   return (
     <Fragment>
-      {resolveRouter(props.routes)}
-      {/* <Route exact path="/" component={Login} /> */}
-      {/* <Redirect to="/login"></Redirect> */}
-    </Fragment>
+      <Switch>
+        {props.routes.map((route: any, index: number) => {
+          if (route.auth && !sessionStorage.getItem('user')) {
+            return <Redirect to="/login"></Redirect>
+          } else {
+
+            return <Route exact={route.exact}
+              key={index}
+              path={route.path}
+              {...route.routes}
+              render={p => (
+                <route.component {...p} routes={route.routes}
+                ></route.component>)
+              }></Route>
+          }
+        })
+        }
+        {/* { resolveRouter(props.routes)} */}
+        {/* <Route exact path="/" component={Login} /> */}
+        {/* <Redirect to="/login"></Redirect> */}
+      </Switch>
+    </Fragment >
   )
 }
 

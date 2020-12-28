@@ -6,6 +6,7 @@ import './login.less'
 import GroupState from '../../store/group-state'
 import { withRouter } from 'react-router'
 const Login: FC = (props: any) => {
+  console.warn(props)
   const [userName, setUserName] = useState()
   const [passWord, setPassWord] = useState()
   // const onFinish = (values: string) => {
@@ -18,10 +19,10 @@ const Login: FC = (props: any) => {
     setPassWord(data.target.value)
   }
   // 登录
-  const submit = () => {
-    props.login(
+  const submit = async () => {
+    await props.login(
       { username: userName, password: passWord },
-      props.history.replace('/home')
+      props.history.replace('/')
     )
   }
   return (

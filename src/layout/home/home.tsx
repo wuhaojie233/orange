@@ -4,8 +4,10 @@ import Headers from '../headers/headers'
 import Sidebar from '../sidebar/sidebar'
 import { renderRoutes } from 'react-router-config'
 import AuthLogin from '../../hooks/auth/auth-login'
+import RouterView from '../../routes/routes'
 const { Content } = Layout
 const Home: FC = (props: any) => {
+  console.warn(props)
   return (
     <Layout className="m-layout">
       <Headers></Headers>
@@ -25,6 +27,7 @@ const Home: FC = (props: any) => {
               minHeight: 280,
             }}
           >
+            <RouterView routes={props.routes}></RouterView>
             {/* {renderRoutes(props.route.routes)} */}
           </Content>
         </Layout>
