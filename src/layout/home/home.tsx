@@ -2,12 +2,10 @@ import { Breadcrumb, Layout } from 'antd'
 import React, { FC } from 'react'
 import Headers from '../headers/headers'
 import Sidebar from '../sidebar/sidebar'
-import { renderRoutes } from 'react-router-config'
-import AuthLogin from '../../hooks/auth/auth-login'
 import RouterView from '../../routes/routes'
+import GroupState from '../../store/group-state'
 const { Content } = Layout
 const Home: FC = (props: any) => {
-  console.warn(props)
   return (
     <Layout className="m-layout">
       <Headers></Headers>
@@ -28,7 +26,6 @@ const Home: FC = (props: any) => {
             }}
           >
             <RouterView routes={props.routes}></RouterView>
-            {/* {renderRoutes(props.route.routes)} */}
           </Content>
         </Layout>
       </Layout>
@@ -37,3 +34,7 @@ const Home: FC = (props: any) => {
 }
 
 export default Home
+// GroupState(, {
+//   reducer: 'home',
+//   states: ['menus']
+// }) 

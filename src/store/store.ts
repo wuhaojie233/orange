@@ -1,15 +1,20 @@
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import reducers from './reducer'
-// 通过applyMiddleware来结合多个Middleware,返回一个enhancer
-const enhancer = applyMiddleware(thunk)
+import reducers from './reducers'
+import { createBrowserHistory } from 'history'
+import { routerMiddleware } from 'react-router-redux'
+import historyRouter from '../@core/_history/history'
+
 const composeEnhancers =
   ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
     (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true })) ||
-  null
-
+  compose
+// 初始化路由中间器
+const routerWare = routerMiddleware(historyRouter)
+// 初始化store 组合 添加 thunk/路由中间器
+// 通过applyMiddleware来结合多个Middleware,返回一个enhancer
 const store = createStore(
   reducers,
-  composeEnhancers ? composeEnhancers(enhancer) : enhancer
+  composeEnhancers(applyMiddleware(thunk, routerWare))
 )
 export default store

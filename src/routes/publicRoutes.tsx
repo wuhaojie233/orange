@@ -22,15 +22,6 @@ const routes = [
     component: Home,
     auth: true,
     routes: [
-      // {
-      //   path: '/',
-      //   exact: true,
-      //   render: () => <Redirect to={'/recommend'} />
-      // },
-      // {
-      //   path: '/about',
-      //   component: About,
-      // },
       {
         path: '/game',
         component: Game,
@@ -41,6 +32,10 @@ const routes = [
         component: dashboard,
       },
       {
+        path: '/about',
+        component: About,
+      },
+      {
         path: '/',
         component: dashboard,
         exact: true,
@@ -48,7 +43,7 @@ const routes = [
       { component: About },
     ],
   },
-  // { path: '/', exact: true, render: () => <Redirect to={'/login'} /> },
+
   { component: About },
 ]
 

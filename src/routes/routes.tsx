@@ -6,7 +6,6 @@ import { RouteIF } from './publicRoutes';
 
 const RouterView = (props: any) => {
   let match = useRouteMatch()
-  console.warn('match------->' + JSON.stringify(match))
   /**
    * @description 解析路由
    */
@@ -44,7 +43,7 @@ const RouterView = (props: any) => {
           if (route.auth && !sessionStorage.getItem('user')) {
             return <Redirect to="/login"></Redirect>
           } else {
-
+            { route.path }
             return <Route exact={route.exact}
               key={index}
               path={route.path}

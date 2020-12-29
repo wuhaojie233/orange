@@ -11,11 +11,8 @@ const Dashboard: FC<{ list: Array<string>, onIncreaseClick: any }> = (props) => 
   const list = { data: 'redux - dashboard', name: 'reducer' }
   let imdata = fromJS(list)
   const getIm = () => {
-    console.warn(imdata.get('data'))
     let im1 = imdata.set('name', 'state - perv')
     let im2 = imdata.set('prevState', 'state - perv')
-    console.warn(im1.getIn(['name']))
-    console.warn(im2.getIn(['prevState']))
   }
   return (
     <div>
