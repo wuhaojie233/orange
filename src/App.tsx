@@ -1,13 +1,13 @@
 import './App.less'
-import React, { FC } from 'react'
+import React, { FC, Suspense } from 'react'
 import routes from './routes/publicRoutes'
-import { renderRoutes } from 'react-router-config'
 import RouterView from './routes/routes'
 const App: FC = () => {
   return (
     <main>
-      <RouterView routes={routes} ></RouterView>
-      {/* {renderRoutes(routes)} */}
+      <Suspense fallback={<div>loading...</div>}>
+        <RouterView routes={routes} ></RouterView>
+      </Suspense>
     </main>
   )
 }

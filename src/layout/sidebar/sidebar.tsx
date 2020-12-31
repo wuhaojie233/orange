@@ -1,8 +1,6 @@
-import { UserOutlined, NotificationOutlined } from '@ant-design/icons';
-
 import { Layout, Menu } from "antd";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import GroupState from '../../store/group-state';
@@ -11,10 +9,13 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const Sidebar: React.FC = (props: any) => {
-  props.getMenus()
+  useEffect(() => {
+    props.getMenus()
+  }, [])
+
   const path = props.location.pathname
   const menusNodes = (menuList: any): any => {
-    menuList && menuList.map((m: any) => {
+    return menuList && menuList.map((m: any) => {
       if (!m.children) {
         return <Menu.Item key={m.path}>
           <Link to={m.path}>

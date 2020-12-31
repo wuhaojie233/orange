@@ -3,7 +3,6 @@ import React, { FC } from 'react'
 import Headers from '../headers/headers'
 import Sidebar from '../sidebar/sidebar'
 import RouterView from '../../routes/routes'
-import GroupState from '../../store/group-state'
 const { Content } = Layout
 const Home: FC = (props: any) => {
   return (
