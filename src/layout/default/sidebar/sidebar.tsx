@@ -3,8 +3,8 @@ import { Layout, Menu } from "antd";
 import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
-import GroupState from '../../store/group-state';
 import { withRouter } from 'react-router';
+import GroupState from "../../../store/group-state";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 

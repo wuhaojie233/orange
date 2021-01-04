@@ -8,7 +8,7 @@ const AuthAction = {
         const user = res.data.user
         dispatch({ type: LOG_AUTH, user })
         sessionStorage.setItem('user', JSON.stringify(user))
-        dispatch(push('/system'))
+        dispatch(push('/'))
       })
     }
   },
