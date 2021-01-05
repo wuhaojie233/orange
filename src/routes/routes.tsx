@@ -8,19 +8,19 @@ const RouterView = (props: any) => {
     <Fragment>
       <Switch>
         {props.routes.map((route: any, index: number) => {
-          if (route.auth && !sessionStorage.getItem('user')) {
-            // return <Redirect key={index} to="/login"></Redirect>
-            return <Redirect key={index} to="/login"></Redirect>
-          } else {
-            return <Route exact={route.exact}
-              key={index}
-              path={route.path}
-              {...route.routes}
-              render={p => (
-                <route.component {...p} routes={route.routes}
-                ></route.component>)
-              }></Route>
-          }
+          // if (route.auth && !sessionStorage.getItem('user')) {
+          //   console.warn('router-->redirect:' + '/login')
+          //   return <Redirect key={index} to="/login"></Redirect>
+          // } else {
+          return <Route exact={route.exact}
+            key={index}
+            path={route.path}
+            {...route.routes}
+            render={p => (
+              <route.component {...p} routes={route.routes}
+              ></route.component>)
+            }></Route>
+          // }
         })
         }
         {/* { resolveRouter(props.routes)} */}
