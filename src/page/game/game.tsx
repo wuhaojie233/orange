@@ -1,8 +1,10 @@
 import { Button } from 'antd'
 import React, { useState, FC } from 'react'
+import { withRouter } from 'react-router'
 import Board from './board/board'
 import './game.less'
-const Game: FC = () => {
+const Game: FC = (props: any) => {
+
   const [state, setstate] = useState({
     xIsNext: true, // 当前 步数 X/O
     history: [
@@ -109,4 +111,4 @@ const Game: FC = () => {
   )
 }
 
-export default Game
+export default withRouter(Game)

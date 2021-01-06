@@ -1,14 +1,15 @@
 import { Button, Checkbox, Form, Input } from 'antd'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FC } from 'react'
 import { UserOutlined } from '@ant-design/icons'
 import './login.less'
 import GroupState from '../../store/group-state'
-import { withRouter } from 'react-router'
+import { AuthContext } from '../../@core/_context/authContext';
 const Login: FC = (props: any) => {
   sessionStorage.clear()
   const [userName, setUserName] = useState()
   const [passWord, setPassWord] = useState()
+  const auth: any = useContext(AuthContext)
   // const onFinish = (values: string) => {
   //   console.log('Received values of form: ', values)
   // }
@@ -21,8 +22,11 @@ const Login: FC = (props: any) => {
   // 登录
   const submit = async () => {
     await props.login(
-      { username: userName, password: passWord }
+      { username: userName, password: passWord },
       // props.history.replace('/')
+      () => {
+        auth.setAuth(true)
+      }
     )
   }
   return (

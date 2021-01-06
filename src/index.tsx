@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 import store from './store/store'
 import historyRouter from './@core/_history/history';
 moment.locale('zh-cn')
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={historyRouter}>
