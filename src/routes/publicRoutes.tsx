@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 
 const Login = lazy(() => import('../pages/auth/login'))
-const Home = lazy(() => import('../layout/default/home/home'))
+const Home = lazy(() => import('../layout/juejin/home/home'))
 const dashboard = lazy(() => import('../page/dashboard/dashboard'))
 const Game = lazy(() => import('../page/game/game'))
 const About = lazy(() => import('../page/about/about'))
