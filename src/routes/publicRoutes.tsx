@@ -7,12 +7,8 @@ const Game = lazy(() => import('../page/game/game'))
 const About = lazy(() => import('../page/about/about'))
 
 const routes = [
-  { path: '/login', exact: true, component: Login },
-  {
-    path: '/system',
-    component: Game,
-    auth: true,
-  },
+
+
 
   {
     path: '/',
@@ -38,6 +34,12 @@ const routes = [
       { component: About },
     ],
   },
+  {
+    path: '/system',
+    component: Game,
+    auth: true,
+  },
+  { path: '/login', exact: true, component: Login },
   { component: About },
 ]
 

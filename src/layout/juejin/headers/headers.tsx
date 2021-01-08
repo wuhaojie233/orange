@@ -1,25 +1,37 @@
 import React, { useState } from 'react'
-import { Menu, Layout } from 'antd';
+import { Menu, Layout, Input, Button } from 'antd';
 // const { SubMenu } = Menu;
 import './headers.less'
+import PCLogo from '@asstes/juejin/header/pc-logo.svg'
+import MobileLogo from '@asstes/juejin/header/mb-logo.svg'
+import { BellOutlined } from '@ant-design/icons';
 const { Header } = Layout
+const { Search } = Input;
 const Headers = () => {
-    const [state, setstate] = useState('')
-    const handleClick = () => {
-
+    const isMobile = false
+    const menuList = [
+        { title: '首页', key: 'menu-1', active: 'one' },
+        { title: '沸点', key: 'menu-2', active: 'two' },
+        { title: '小册', key: 'menu-3', active: 'three' },
+        { title: '活动', key: 'menu-4', active: 'four' },
+    ]
+    const [state, setState] = useState('menu-1')
+    const handleClick = (event: any) => {
+        setState(event.key);
     }
+    const onSearch = (value: any) => console.log(value);
     return <Header>
         <div className="header-wrapper">
             <Menu onClick={handleClick} selectedKeys={[state]} mode="horizontal">
+
                 <Menu.Item key="mail" >
-                    掘金
-        </Menu.Item>
-                <Menu.Item key="mail" >
-                    首页
-        </Menu.Item>
-                <Menu.Item key="app" disabled >
-                    Navigation Two
-        </Menu.Item>
+                    {isMobile ? <img src={MobileLogo} alt="juejin" width="45" height="38" /> : <img src={PCLogo} alt="juejin" width="98" height="38" />}
+                </Menu.Item>
+                {menuList.map(m => {
+                    return <Menu.Item key={m.key} >
+                        <a className="m-title" href="#"> {m.title}</a>
+                    </Menu.Item>
+                })}
                 {/* <SubMenu key="SubMenu" title="Navigation Three - Submenu">
                 <Menu.ItemGroup title="Item 1">
                     <Menu.Item key="setting:1">Option 1</Menu.Item>
@@ -30,11 +42,21 @@ const Headers = () => {
                     <Menu.Item key="setting:4">Option 4</Menu.Item>
                 </Menu.ItemGroup>
             </SubMenu> */}
-                <Menu.Item key="alipay">
-                    活动
-            </Menu.Item>
+
             </Menu>
+            <div className="h-search">
+                <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
+            </div>
+            <div className="h-add">
+                <Button type="primary">写文章</Button>
+            </div>
+            <div className="m-notification">
+                <BellOutlined />
+            </div>
+            <div className="h-menu">
+            </div>
         </div>
+
     </Header>
 
 }

@@ -12,7 +12,6 @@ const RouterView = (props: any) => {
         {props.routes.map((route: any, index: number) => {
           if (route.auth && !auth.isAuth) {
             // if (route.auth && !sessionStorage.getItem('user')) {
-            console.log('router-->redirect:' + '/login')
             return <Redirect key={index} to="/login"></Redirect>
           } else {
             return <Route exact={route.exact}
