@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { Menu, Layout, Input, Dropdown } from 'antd';
+import { Menu, Layout, Input, Dropdown, Avatar } from 'antd';
 // const { SubMenu } = Menu;
 import './headers.less'
 import PCLogo from '@asstes/juejin/header/pc-logo.svg'
 import MobileLogo from '@asstes/juejin/header/mb-logo.svg'
-import { BellOutlined, SearchOutlined } from '@ant-design/icons';
+import { BellFilled, SearchOutlined, CaretDownOutlined, UserOutlined } from '@ant-design/icons';
 const { Header } = Layout
-const { Search } = Input;
 const menuList = [
     { title: '首页', key: 'menu-1', active: 'one' },
     { title: '沸点', key: 'menu-2', active: 'two' },
@@ -33,11 +32,10 @@ const Headers = () => {
 
     return <Header>
         <div className="header-wrapper">
+            <div>
+                {isMobile ? <img className="logo" src={MobileLogo} alt="juejin" width="45" height="38" /> : <img className="logo" src={PCLogo} alt="juejin" width="98" height="38" />}
+            </div>
             <Menu onClick={handleClick} selectedKeys={[state]} mode="horizontal">
-
-                <Menu.Item key="mail" >
-                    {isMobile ? <img src={MobileLogo} alt="juejin" width="45" height="38" /> : <img src={PCLogo} alt="juejin" width="98" height="38" />}
-                </Menu.Item>
                 {menuList.map(m => {
                     return <Menu.Item key={m.key} >
                         <a className="m-title" href="#"> {m.title}</a>
@@ -60,16 +58,20 @@ const Headers = () => {
                     className="search-text"
                     placeholder="搜索掘金"
                     suffix={
-                        <SearchOutlined />
+                        <SearchOutlined className="icon-search" />
                     } />
             </div>
             <div className="h-add">
-                <Dropdown.Button overlay={menu}>Actions</Dropdown.Button>
+                <Dropdown.Button icon={<CaretDownOutlined className="b-icon" />} overlay={menu}>写文章</Dropdown.Button>
             </div>
             <div className="m-notification">
-                <BellOutlined />
+                <BellFilled className="icon-bell" />
             </div>
-            <div className="h-menu">
+            <div className="h-avatar">
+                <Avatar
+                    className="avatar"
+                    icon={<UserOutlined />}
+                />
             </div>
         </div>
 

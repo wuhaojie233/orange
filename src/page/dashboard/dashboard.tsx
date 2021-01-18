@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { Button } from 'antd';
-
 import { fromJS } from 'immutable';
 
 import GroupState from '../../store/group-state';
