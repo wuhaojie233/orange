@@ -30,7 +30,7 @@ const Headers = () => {
         </Menu>
     );
 
-    return <Header>
+    return <Header className="headers-view">
         <div className="header-wrapper">
             <div>
                 {isMobile ? <img className="logo" src={MobileLogo} alt="juejin" width="45" height="38" /> : <img className="logo" src={PCLogo} alt="juejin" width="98" height="38" />}

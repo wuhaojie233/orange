@@ -15,17 +15,14 @@ const list = [
 
 const Labels = () => {
     return (
-        <div className="labels-wrapper">
-            <nav>
-                <div className="nav-list">
-                    {list.map(l => {
-                        return <a key={l.title} className="nav-item">{l.title}</a>
-                    })}
-                    <a className="nav-item right">标签管理</a>
-                </div>
-            </nav>
-
-        </div>
+        <nav className="labels-wrapper">
+            <div className="nav-list">
+                {list.map(l => {
+                    return <a key={l.title} className="nav-item">{l.title}</a>
+                })}
+                <a className="nav-item right">标签管理</a>
+            </div>
+        </nav>
 
     )
 }

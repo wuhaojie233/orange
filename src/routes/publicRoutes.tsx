@@ -5,10 +5,9 @@ const Home = lazy(() => import('../layout/juejin/home/home'))
 const dashboard = lazy(() => import('../page/dashboard/dashboard'))
 const Game = lazy(() => import('../page/game/game'))
 const About = lazy(() => import('../page/about/about'))
+const ArticleEnery = lazy(() => import('../pages/juejin/ArticleEnery/ArticleEnery'))
 
 const routes = [
-
-
 
   {
     path: '/',
@@ -28,7 +27,7 @@ const routes = [
       },
       {
         path: '/',
-        component: dashboard,
+        component: ArticleEnery,
         exact: true,
       },
       { component: About },
