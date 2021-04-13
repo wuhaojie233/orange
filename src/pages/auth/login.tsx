@@ -77,6 +77,7 @@ const Login: FC = (props: any) => {
             登录
           </Button>
           或者 <a href="">立即注册</a>
+
         </Form.Item>
       </Form>
     </section>
