@@ -8,6 +8,7 @@ const Game = lazy(() => import('../page/game/game'))
 const About = lazy(() => import('../page/about/about'))
 const ArticleEnery = lazy(() => import('../pages/juejin/ArticleEnery/ArticleEnery'))
 const Cart = lazy(() => import('../pages/cart/cart'))
+const Demo = lazy(() => import('../pages/demo/demo'))
 
 const routes = [
 
@@ -30,6 +31,10 @@ const routes = [
       {
         path: '/cart',
         component: Cart,
+      },
+      {
+        path: '/demo',
+        component: Demo,
       },
       {
         path: '/',
