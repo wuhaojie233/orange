@@ -1,11 +1,13 @@
+import Home from 'layout/juejin/home/home'
 import { lazy } from 'react'
 
 const Login = lazy(() => import('../pages/auth/login'))
-const Home = lazy(() => import('../layout/juejin/home/home'))
+// const Home = lazy(() => import('../layout/juejin/home/home'))
 const dashboard = lazy(() => import('../page/dashboard/dashboard'))
 const Game = lazy(() => import('../page/game/game'))
 const About = lazy(() => import('../page/about/about'))
 const ArticleEnery = lazy(() => import('../pages/juejin/ArticleEnery/ArticleEnery'))
+const Cart = lazy(() => import('../pages/cart/cart'))
 
 const routes = [
 
@@ -24,6 +26,10 @@ const routes = [
       {
         path: '/about',
         component: About,
+      },
+      {
+        path: '/cart',
+        component: Cart,
       },
       {
         path: '/',

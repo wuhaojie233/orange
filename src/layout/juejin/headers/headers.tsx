@@ -5,15 +5,16 @@ import './headers.less'
 import PCLogo from '@asstes/juejin/header/pc-logo.svg'
 import MobileLogo from '@asstes/juejin/header/mb-logo.svg'
 import { BellFilled, SearchOutlined, CaretDownOutlined, UserOutlined } from '@ant-design/icons';
+import { withRouter } from 'react-router';
 const { Header } = Layout
 const menuList = [
-    { title: '首页', key: 'menu-1', active: 'one' },
-    { title: '沸点', key: 'menu-2', active: 'two' },
-    { title: '小册', key: 'menu-3', active: 'three' },
-    { title: '活动', key: 'menu-4', active: 'four' },
+    { title: '首页', key: 'menu-1', active: 'one', path: '' },
+    { title: '沸点', key: 'menu-2', active: 'two', path: '' },
+    { title: '小册', key: 'menu-3', active: 'three', path: '' },
+    { title: '购物车', key: 'menu-4', active: 'four', path: '/cart' },
 ]
 
-const Headers = () => {
+const Headers = (props: any) => {
     const isMobile = false
 
     const [state, setState] = useState('menu-1')
@@ -29,7 +30,9 @@ const Headers = () => {
             <Menu.Item key="1">发布沸点</Menu.Item>
         </Menu>
     );
-
+    const jumpMenu = (item: any) => {
+        props.history.push(item.path || "/")
+    }
     return <Header className="headers-view">
         <div className="header-wrapper">
             <div>
@@ -38,7 +41,7 @@ const Headers = () => {
             <Menu onClick={handleClick} selectedKeys={[state]} mode="horizontal">
                 {menuList.map(m => {
                     return <Menu.Item key={m.key} >
-                        <a className="m-title" href="#"> {m.title}</a>
+                        <a onClick={() => jumpMenu(m)} className="m-title" > {m.title}</a>
                     </Menu.Item>
                 })}
                 {/* <SubMenu key="SubMenu" title="Navigation Three - Submenu">
@@ -79,4 +82,4 @@ const Headers = () => {
 
 }
 
-export default Headers
+export default withRouter(Headers)

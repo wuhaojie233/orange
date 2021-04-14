@@ -1,6 +1,6 @@
 import React from 'react'
-// import './HeaderEnrty.less'
-import styles from './HeaderEnrtys.less'
+import './HeaderEnrty.less'
+// import styles from './HeaderEnrtys.less'
 const headerList = [
     { title: '热门', path: '3' },
     { title: '最新', path: '123' },

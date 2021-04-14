@@ -51,7 +51,7 @@ export default Mock.mock('/api/queryArticleList', 'post', () => {
         labels: [
           { title: 'Javascript', id: 1 },
           { title: '前端', id: 2 },
-          { title: 'TypeScript', id: 2 },
+          { title: 'TypeScript', id: 3 },
         ],
         level: 5,
       },
