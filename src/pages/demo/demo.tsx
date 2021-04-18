@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useRef } from 'react'
 import { Button } from 'antd'
+// study 8(开始)
 const DemoReducer = (state: any, action: any) => {
   switch (action.type) {
     case 'increment':
