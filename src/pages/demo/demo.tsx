@@ -1,22 +1,15 @@
 import React, { useEffect, useReducer, useRef } from 'react'
 import { Button } from 'antd'
-const DemoReducer = (state: any, action: any) => {
-  switch (action.type) {
-    case 'increment':
-      return state + 1
-    case 'decrement':
-      return state - 1
-    default:
-      return state
-  }
-}
-const Demo = () => {
+import DemoGroupState from 'storeDemo/demoGroupState.ts';
+import ModalComponent from './modal'
+// study 16(3/2)
+const Demo = (props: any) => {
   const inputELement: any = useRef()
   const focus = () => {
     inputELement.current.focus()
   }
 
-  const [state, dispatch] = useReducer(DemoReducer, 1)
+  // const [state, dispatch] = useReducer(DemoReducer, 1)
   //   useeffect
   //   useEffect(() => {
   //     console.log('挂载之后,数据发生更新之后')
@@ -31,14 +24,17 @@ const Demo = () => {
       </Button>
       <hr />
       <h3>useReducer:</h3>
-      <span>reducerState:{state}</span>
-      <Button type="primary" onClick={() => dispatch({ type: 'increment' })}>
+      <span>reducerState:{props.count}</span>
+      <Button type="primary" onClick={() => props.increment(10)}>
         increment
       </Button>
-      <Button type="primary" onClick={() => dispatch({ type: 'decrement' })}>
+      <Button type="primary" onClick={() => props.decrement(5)}>
         decrement
       </Button>
+      <hr />
+      <h3>modal</h3>
+      <ModalComponent></ModalComponent>
     </div>
   )
 }
-export default Demo
+export default DemoGroupState(Demo, { reducer: 'demo', states: ['demo'] })
