@@ -28,6 +28,12 @@ const Demo = (props: any) => {
       <Button type="primary" onClick={() => props.increment(10)}>
         increment
       </Button>
+      <Button type="primary" onClick={() => props.increment_async(100)}>
+        increment_async
+      </Button>
+      <Button type="primary" onClick={() => props.increment_saga_async(1000)}>
+        increment_async_saga
+      </Button>
       <Button type="primary" onClick={() => props.decrement(5)}>
         decrement
       </Button>

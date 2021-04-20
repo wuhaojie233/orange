@@ -4,8 +4,11 @@ import { Modal, Button } from 'antd'
 const ModalComponent = (props: any) => {
 
     return <div>
-        <Button type="primary" onClick={() => props.show()}>
+        {/* <Button type="primary" onClick={() => props.show()}>
             Open Modal
+        </Button> */}
+        <Button type="primary" onClick={() => props.show_async()}>
+            async Open Modal
         </Button>
         <Modal title="Basic Modal" visible={props.showState} onOk={() => { props.hide() }} onCancel={() => { props.hide() }}>
             <p>Some contents...</p>

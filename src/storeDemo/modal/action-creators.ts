@@ -1,4 +1,4 @@
-import { HIDEMODAL, SHOWMODAL } from './const'
+import { HIDEMODAL, SHOWMODAL, SHOWMODAL_ASYNC } from './const';
 
 const DemoModalAction = {
   show() {
@@ -6,10 +6,11 @@ const DemoModalAction = {
       dispatch({ type: SHOWMODAL })
     }
   },
+  show_async() {
+    return { type: SHOWMODAL_ASYNC }
+  },
   hide() {
-    return (dispatch: any) => {
-      dispatch({ type: HIDEMODAL })
-    }
+    return { type: HIDEMODAL }
   },
 }
 export default DemoModalAction
