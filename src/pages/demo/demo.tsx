@@ -1,14 +1,25 @@
-import React, { useEffect, useReducer, useRef } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { Button } from 'antd'
 import DemoGroupState from 'storeDemo/demoGroupState.ts';
 import ModalComponent from './modal'
+import DemoActionsComponent from './demoAction'
 // study 16(3/2)
 const Demo = (props: any) => {
   const inputELement: any = useRef()
   const focus = () => {
     inputELement.current.focus()
   }
-
+  /**
+   * React Hooks
+   */
+  const [state, setState] = useState(() => {
+    return props.one || { age: 0 }
+  })
+  const handleAge = () => {
+    setState((state: any) => {
+      return { ...state, age: state.age + 10 }
+    })
+  }
   // const [state, dispatch] = useReducer(DemoReducer, 1)
   //   useeffect
   //   useEffect(() => {
@@ -40,7 +51,17 @@ const Demo = (props: any) => {
       <hr />
       <h3>modal</h3>
       <ModalComponent></ModalComponent>
-    </div>
+      <DemoActionsComponent></DemoActionsComponent>
+      <hr />
+      <h3>React Hooks</h3>
+      <span>{state.age}</span>
+      <Button type="primary" onClick={() => setState({ ...state, age: state.age + 10 })}>
+        + 10
+      </Button>
+      <Button type="primary" onClick={() => handleAge()}>
+        handleAge
+      </Button>
+    </div >
   )
 }
 export default DemoGroupState(Demo, { reducer: 'demo', states: ['demo'] })
