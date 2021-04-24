@@ -1,23 +1,26 @@
-import React, { useEffect, useReducer, useRef } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { Button } from 'antd'
-// study 8(开始)
-const DemoReducer = (state: any, action: any) => {
-  switch (action.type) {
-    case 'increment':
-      return state + 1
-    case 'decrement':
-      return state - 1
-    default:
-      return state
-  }
-}
-const Demo = () => {
+import DemoGroupState from 'storeDemo/demoGroupState.ts';
+import ModalComponent from './modal'
+import DemoActionsComponent from './demoAction'
+// study 16(3/2)
+const Demo = (props: any) => {
   const inputELement: any = useRef()
   const focus = () => {
     inputELement.current.focus()
   }
-
-  const [state, dispatch] = useReducer(DemoReducer, 1)
+  /**
+   * React Hooks
+   */
+  const [state, setState] = useState(() => {
+    return props.one || { age: 0 }
+  })
+  const handleAge = () => {
+    setState((state: any) => {
+      return { ...state, age: state.age + 10 }
+    })
+  }
+  // const [state, dispatch] = useReducer(DemoReducer, 1)
   //   useeffect
   //   useEffect(() => {
   //     console.log('挂载之后,数据发生更新之后')
@@ -32,14 +35,33 @@ const Demo = () => {
       </Button>
       <hr />
       <h3>useReducer:</h3>
-      <span>reducerState:{state}</span>
-      <Button type="primary" onClick={() => dispatch({ type: 'increment' })}>
+      <span>reducerState:{props.count}</span>
+      <Button type="primary" onClick={() => props.increment(10)}>
         increment
       </Button>
-      <Button type="primary" onClick={() => dispatch({ type: 'decrement' })}>
+      <Button type="primary" onClick={() => props.increment_async(100)}>
+        increment_async
+      </Button>
+      <Button type="primary" onClick={() => props.increment_saga_async(1000)}>
+        increment_async_saga
+      </Button>
+      <Button type="primary" onClick={() => props.decrement(5)}>
         decrement
       </Button>
-    </div>
+      <hr />
+      <h3>modal</h3>
+      <ModalComponent></ModalComponent>
+      <DemoActionsComponent></DemoActionsComponent>
+      <hr />
+      <h3>React Hooks</h3>
+      <span>{state.age}</span>
+      <Button type="primary" onClick={() => setState({ ...state, age: state.age + 10 })}>
+        + 10
+      </Button>
+      <Button type="primary" onClick={() => handleAge()}>
+        handleAge
+      </Button>
+    </div >
   )
 }
-export default Demo
+export default DemoGroupState(Demo, { reducer: 'demo', states: ['demo'] })
